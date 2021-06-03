@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="space"></div>
+    <div class="container">
+      <div class="space"></div>
+      <div class="sticky">sticky吸顶</div>
+    </div>
+    <div class="space"></div>
+  </body>
+</html>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    position: relative;
+    width: 100vw;
+    height: 150vh;
+    background: linear-gradient(black, #fff);
+  }
+  .space {
+    height: 100vh;
+  }
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #25a0ff;
+  }
+</style>
+<script>
+  // 相对于全局实现sticky，但当父元素消失的时候不再sticky
+</script>

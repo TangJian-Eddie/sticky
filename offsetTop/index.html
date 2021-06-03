@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="space"></div>
+    <div class="container">
+      <div class="space">占位符</div>
+      <div class="sticky" id="sticky">offsetTop吸顶</div>
+    </div>
+    <div class="space"></div>
+  </body>
+</html>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    position: relative;
+    width: 100vw;
+    height: 150vh;
+    background: linear-gradient(black, #fff);
+  }
+  .space {
+    height: 100vh;
+  }
+  .sticky {
+    /* position: -webkit-sticky;
+    position: sticky;
+    top: 0; */
+    background-color: #25a0ff;
+  }
+  #sticky[data-fixed="fixed"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+</style>
+<script>
+  var obj = document.getElementById("sticky");
+  var ot = getOffset(obj);
+  document.onscroll = function () {
+    var st = document.body.scrollTop || document.documentElement.scrollTop;
+    obj.setAttribute("data-fixed", st >= ot ? "fixed" : "");
+  };
+
+  function getOffset(obj) {
+    let offsetT = 0;
+    while (obj !== window.document.body && obj !== null) {
+      offsetT += obj.offsetTop;
+      obj = obj.offsetParent;
+    }
+    return offsetT;
+  }
+</script>
